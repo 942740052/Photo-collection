@@ -55,14 +55,14 @@ const AlbumsPage = () => {
     <div className="min-h-screen bg-gray-100">
       <Navbar />
       <div className="container mx-auto px-4 pt-24 pb-12">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-gray-800 mb-2">我的相册</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">我的相册</h1>
             <p className="text-gray-600">共 {albums.length} 个相册</p>
           </div>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+            className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors whitespace-nowrap"
           >
             <Plus className="inline-block h-4 w-4 mr-2" />
             创建相册
@@ -76,70 +76,77 @@ const AlbumsPage = () => {
         )}
 
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {Array.from({ length: 4 }).map((_, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
+            {Array.from({ length: 10 }).map((_, index) => (
               <div key={index} className="bg-gray-200 rounded-lg aspect-[4/3] animate-pulse"></div>
             ))}
           </div>
         ) : albums.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-600 mb-4">还没有相册，快去创建吧！</p>
+          <div className="text-center py-16 sm:py-24">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-200 rounded-full mb-6">
+              <span className="text-3xl">📷</span>
+            </div>
+            <p className="text-gray-600 mb-6 text-base sm:text-lg">还没有相册，快去创建吧！</p>
             <button
               onClick={() => setShowCreateModal(true)}
-              className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
             >
               创建相册
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
             {albums.map((album) => (
-              <div key={album.id} className="bg-white rounded-lg shadow-md overflow-hidden group">
+              <Link key={album.id} to={`/album/${album.id}`} className="block bg-white rounded-lg shadow-sm sm:shadow-md overflow-hidden group hover:shadow-md sm:group-hover:shadow-lg transition-shadow">
                 <div className="aspect-[4/3] bg-gray-200 flex items-center justify-center">
                   {album.cover_photo_id ? (
                     <img
                       src="https://via.placeholder.com/400x300?text=Album+Cover"
                       alt={album.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   ) : (
                     <div className="text-gray-400">
-                      <span className="text-xl">📷</span>
+                      <span className="text-xl sm:text-2xl">📷</span>
                     </div>
                   )}
                 </div>
                 <div className="p-4 relative">
-                  <div className="absolute top-2 right-2 flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute top-3 right-3 flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
                     <button
-                      className="bg-white bg-opacity-80 p-1 rounded-full hover:bg-opacity-100 transition-colors"
+                      className="bg-white bg-opacity-80 p-1.5 rounded-full hover:bg-opacity-100 transition-colors shadow-sm"
                       title="编辑"
                     >
                       <Edit2 className="h-4 w-4 text-gray-800" />
                     </button>
                     <button
-                      onClick={() => handleDeleteAlbum(album.id)}
-                      className="bg-white bg-opacity-80 p-1 rounded-full hover:bg-opacity-100 transition-colors"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleDeleteAlbum(album.id);
+                      }}
+                      className="bg-white bg-opacity-80 p-1.5 rounded-full hover:bg-opacity-100 transition-colors shadow-sm"
                       title="删除"
                     >
                       <Trash2 className="h-4 w-4 text-gray-800" />
                     </button>
                   </div>
                   <h3 className="text-lg font-medium text-gray-800 mb-1">{album.name}</h3>
-                  <p className="text-sm text-gray-500 mb-2">
+                  <p className="text-sm text-gray-500 mb-2 line-clamp-2">
                     {album.description || '无描述'}
                   </p>
                   <p className="text-xs text-gray-400">
                     创建于 {new Date(album.created_at).toLocaleDateString()}
                   </p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
 
         {/* 创建相册模态框 */}
         {showCreateModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
             <div className="bg-white rounded-lg p-6 w-full max-w-md">
               <h2 className="text-xl font-bold text-gray-800 mb-4">创建新相册</h2>
               
@@ -177,7 +184,7 @@ const AlbumsPage = () => {
                 <div className="flex space-x-4">
                   <button
                     type="submit"
-                    className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                    className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors flex-1"
                   >
                     创建
                   </button>
@@ -189,7 +196,7 @@ const AlbumsPage = () => {
                       setAlbumDescription('')
                       setCreateError('')
                     }}
-                    className="bg-gray-200 text-gray-700 py-2 px-6 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+                    className="bg-gray-200 text-gray-700 py-2 px-6 rounded-lg hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 transition-colors flex-1"
                   >
                     取消
                   </button>

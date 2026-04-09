@@ -38,7 +38,7 @@ const HomePage = () => {
       <Navbar />
       <div className="container mx-auto px-4 pt-24 pb-12">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">我的照片</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">我的照片</h1>
           <p className="text-gray-600">共 {photos.length} 张照片</p>
         </div>
 
@@ -49,27 +49,30 @@ const HomePage = () => {
         )}
 
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {Array.from({ length: 8 }).map((_, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
+            {Array.from({ length: 10 }).map((_, index) => (
               <div key={index} className="bg-gray-200 rounded-lg aspect-square animate-pulse"></div>
             ))}
           </div>
         ) : photos.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-600 mb-4">还没有照片，快去上传吧！</p>
+          <div className="text-center py-16 sm:py-24">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-200 rounded-full mb-6">
+              <span className="text-3xl">📷</span>
+            </div>
+            <p className="text-gray-600 mb-6 text-base sm:text-lg">还没有照片，快去上传吧！</p>
             <Link
               to="/upload"
-              className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors"
             >
               上传照片
             </Link>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-5">
             {photos.map((photo) => (
               <div key={photo.id} className="relative group">
-                <Link to={`/photo/${photo.id}`}>
-                  <div className="aspect-square overflow-hidden rounded-lg shadow-md">
+                <Link to={`/photo/${photo.id}`} className="block">
+                  <div className="aspect-square overflow-hidden rounded-lg shadow-sm sm:shadow-md transition-shadow duration-300 group-hover:shadow-md sm:group-hover:shadow-lg">
                     <img
                       src={photo.file_path}
                       alt={photo.title || photo.filename}
@@ -95,7 +98,7 @@ const HomePage = () => {
                     </Link>
                   </div>
                 </div>
-                <div className="mt-2">
+                <div className="mt-3 px-1">
                   <h3 className="text-sm font-medium text-gray-800 truncate">
                     {photo.title || photo.filename}
                   </h3>

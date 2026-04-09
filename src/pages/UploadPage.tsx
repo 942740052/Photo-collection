@@ -84,7 +84,7 @@ const UploadPage = () => {
       <Navbar />
       <div className="container mx-auto px-4 pt-24 pb-12">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">上传照片</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">上传照片</h1>
           <p className="text-gray-600">支持批量上传，拖拽文件到下方区域</p>
         </div>
 
@@ -103,7 +103,7 @@ const UploadPage = () => {
         <form onSubmit={handleSubmit}>
           {/* 拖拽上传区域 */}
           <div
-            className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-6"
+            className="border-2 border-dashed border-gray-300 rounded-lg p-6 sm:p-8 text-center mb-6 transition-all duration-300 hover:border-blue-400 cursor-pointer"
             onDragOver={handleDragOver}
             onDrop={handleDrop}
             onClick={() => fileInputRef.current?.click()}
@@ -116,7 +116,7 @@ const UploadPage = () => {
               accept="image/*"
               className="hidden"
             />
-            <UploadIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+            <UploadIcon className="h-10 sm:h-12 w-10 sm:w-12 text-gray-400 mx-auto mb-4" />
             <p className="text-gray-600 mb-2">拖拽照片到这里，或点击选择文件</p>
             <p className="text-sm text-gray-500">支持 JPG、PNG、WebP 等图片格式</p>
           </div>
@@ -124,18 +124,18 @@ const UploadPage = () => {
           {/* 已选择的文件 */}
           {files.length > 0 && (
             <div className="mb-6">
-              <h3 className="text-sm font-medium text-gray-700 mb-2">已选择 {files.length} 个文件</h3>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="text-sm font-medium text-gray-700 mb-3">已选择 {files.length} 个文件</h3>
+              <div className="flex flex-wrap gap-2 sm:gap-3">
                 {files.map((file, index) => (
-                  <div key={index} className="flex items-center bg-gray-100 rounded-full px-3 py-1">
+                  <div key={index} className="flex items-center bg-gray-100 rounded-full px-3 py-1.5 sm:px-4 sm:py-2">
                     <Image className="h-4 w-4 text-gray-500 mr-2" />
-                    <span className="text-sm text-gray-700 truncate max-w-[150px]">
+                    <span className="text-sm text-gray-700 truncate max-w-[120px] sm:max-w-[150px]">
                       {file.name}
                     </span>
                     <button
                       type="button"
                       onClick={() => removeFile(index)}
-                      className="ml-2 text-gray-500 hover:text-gray-700"
+                      className="ml-2 text-gray-500 hover:text-gray-700 transition-colors"
                     >
                       <X className="h-4 w-4" />
                     </button>
@@ -146,7 +146,7 @@ const UploadPage = () => {
           )}
 
           {/* 照片信息 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
             <div>
               <label htmlFor="title" className="block text-gray-700 mb-2">标题</label>
               <input
@@ -185,7 +185,7 @@ const UploadPage = () => {
           <button
             type="submit"
             disabled={uploadLoading || files.length === 0}
-            className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+            className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 transition-colors w-full sm:w-auto"
           >
             {uploadLoading ? '上传中...' : `上传 ${files.length} 张照片`}
           </button>
