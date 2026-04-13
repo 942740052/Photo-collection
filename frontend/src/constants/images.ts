@@ -1,0 +1,17 @@
+export const IMAGES = {
+  emptyPhotos: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop&q=80',
+  emptyAlbums: 'https://images.unsplash.com/photo-1516651029879-bcd191e7d33b?w=600&h=400&fit=crop&q=80',
+  emptyFavorites: 'https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?w=600&h=400&fit=crop&q=80',
+  emptyShares: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?w=600&h=400&fit=crop&q=80',
+  emptyTrash: 'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=600&h=400&fit=crop&q=80',
+  uploadArea: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=400&fit=crop&q=80',
+  errorImage: 'https://images.unsplash.com/photo-1509515837298-2c67a3933321?w=200&h=200&fit=crop&q=80',
+  albumPlaceholder: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop&q=80',
+  defaultAvatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&h=200&fit=crop&q=80',
+  loginLeft: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop&q=80',
+  loginRight: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=600&fit=crop&q=80',
+  logo: '/src/assets/images/logo.svg',
+  featureUpload: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?w=200&h=200&fit=crop&q=80',
+  featureOrganize: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=200&h=200&fit=crop&q=80',
+  featureShare: 'https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=200&h=200&fit=crop&q=80',
+}

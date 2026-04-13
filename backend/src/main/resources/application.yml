@@ -1,0 +1,44 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: photo-backend
+
+  profiles:
+    active: dev
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 100MB
+
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+    serialization:
+      write-dates-as-timestamps: false
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+  mapper-locations: classpath:mapper/*.xml
+
+jwt:
+  secret: PhotoMessageSecretKeyForJWT2024VeryLongSecretKeyForSecurity
+  expiration: 7200000
+  refresh-expiration: 604800000
+  header: Authorization
+  prefix: Bearer
+
+file:
+  upload-path: D:/code/Photo-message/backend/uploads/
+  max-size: 52428800
+  allowed-types: jpg,jpeg,png,gif,webp,bmp

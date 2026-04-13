@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="emptyAlbumGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="400" height="300" fill="url(#emptyAlbumGrad)"/>
+  
+  <g transform="translate(120, 40)">
+    <rect x="0" y="0" width="160" height="120" rx="12" fill="white" stroke="#dee2e6" stroke-width="2"/>
+    <rect x="15" y="15" width="130" height="70" rx="6" fill="#e9ecef"/>
+    <rect x="15" y="95" width="80" height="8" rx="4" fill="#dee2e6"/>
+  </g>
+  
+  <g transform="translate(80, 100)">
+    <rect x="0" y="0" width="60" height="45" rx="6" fill="white" stroke="#dee2e6" stroke-width="1.5" opacity="0.8"/>
+    <rect x="8" y="8" width="44" height="25" rx="3" fill="#e9ecef"/>
+  </g>
+  
+  <g transform="translate(260, 100)">
+    <rect x="0" y="0" width="60" height="45" rx="6" fill="white" stroke="#dee2e6" stroke-width="1.5" opacity="0.8"/>
+    <rect x="8" y="8" width="44" height="25" rx="3" fill="#e9ecef"/>
+  </g>
+  
+  <g transform="translate(150, 180)">
+    <circle cx="50" cy="30" r="30" fill="#764ba2" opacity="0.1"/>
+    <rect x="35" y="15" width="30" height="30" rx="4" fill="none" stroke="#764ba2" stroke-width="2"/>
+    <line x1="50" y1="22" x2="50" y2="38" stroke="#764ba2" stroke-width="2" stroke-linecap="round"/>
+    <line x1="42" y1="30" x2="58" y2="30" stroke="#764ba2" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  
+  <text x="200" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#6c757d">暂无相册</text>
+</svg>

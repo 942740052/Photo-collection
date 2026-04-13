@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="uploadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="400" height="300" fill="#f8f9fa"/>
+  
+  <g transform="translate(100, 50)">
+    <rect x="0" y="0" width="200" height="150" rx="16" fill="white" stroke="#dee2e6" stroke-width="2" stroke-dasharray="8 4"/>
+    
+    <circle cx="100" cy="65" r="35" fill="url(#uploadGrad)" opacity="0.1"/>
+    <path d="M100 45 L100 85" stroke="url(#uploadGrad)" stroke-width="4" stroke-linecap="round"/>
+    <path d="M85 60 L100 45 L115 60" stroke="url(#uploadGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <rect x="40" y="110" width="120" height="8" rx="4" fill="#e9ecef"/>
+    <rect x="60" y="125" width="80" height="6" rx="3" fill="#dee2e6"/>
+  </g>
+  
+  <g transform="translate(50, 220)">
+    <rect x="0" y="0" width="50" height="40" rx="6" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    <rect x="8" y="8" width="34" height="20" rx="3" fill="#e9ecef"/>
+  </g>
+  
+  <g transform="translate(120, 230)">
+    <rect x="0" y="0" width="50" height="40" rx="6" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    <rect x="8" y="8" width="34" height="20" rx="3" fill="#e9ecef"/>
+  </g>
+  
+  <g transform="translate(190, 220)">
+    <rect x="0" y="0" width="50" height="40" rx="6" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    <rect x="8" y="8" width="34" height="20" rx="3" fill="#e9ecef"/>
+  </g>
+  
+  <g transform="translate(260, 230)">
+    <rect x="0" y="0" width="50" height="40" rx="6" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    <rect x="8" y="8" width="34" height="20" rx="3" fill="#e9ecef"/>
+  </g>
+  
+  <g transform="translate(330, 220)">
+    <rect x="0" y="0" width="50" height="40" rx="6" fill="white" stroke="#dee2e6" stroke-width="1"/>
+    <rect x="8" y="8" width="34" height="20" rx="3" fill="#e9ecef"/>
+  </g>
+</svg>
